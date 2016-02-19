@@ -1,10 +1,24 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { App, NavTo } from './containers';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import './style.css';
 
-var doSomething = () => {
-  return 'es6 arror functions working';
-};
+var reducer = (prevState = { page: 'home' }, action) => {
+  switch (action.type) {
+    case 'GOTO_VIEW':
+      return Object.assign({}, prevState, { page: action.page });
+    default:
+      return prevState;
+  }
+}
 
-console.log('hello world! body bg colour set to tomato');
-console.log('__dirname', __dirname);
-console.log('__filename', __filename);
-console.log(doSomething());
+let store = createStore(reducer);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('app')
+);

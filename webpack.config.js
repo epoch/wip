@@ -16,14 +16,14 @@ module.exports = {
   module: {
     loaders: [{
       // expects regex
-      test: /\.js$/,
-      loader: 'babel-loader',
+      test: /\.jsx?$/,
+      loader: ['babel-loader'],
       // exclude or include paths
       exclude: '/node_modules/',
       // pass params to loader like querystring
       // instead of using .babelrc
       query: {
-        presets: ['es2015'],
+        presets: ['es2015', 'react'],
         compact: false
       }
     }, {
