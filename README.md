@@ -9,6 +9,24 @@
 │   └── index.html
 ├── package.json
 ├── src
+│   ├── actions
+│   │   └── index.js
+│   ├── components
+│   │   ├── about
+│   │   │   ├── index.js
+│   │   │   └── style.css
+│   │   ├── contact
+│   │   │   └── index.js
+│   │   ├── home
+│   │   │   ├── index.js
+│   │   │   └── style.css
+│   │   └── index.js
+│   ├── containers
+│   │   ├── app
+│   │   │   └── index.js
+│   │   ├── index.js
+│   │   └── navTo
+│   │       └── index.js
 │   ├── index.html
 │   ├── index.js
 │   └── style.css
