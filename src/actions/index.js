@@ -1,7 +1,7 @@
 
-export function gotoView(page) {
+export function gotoView(path) {
   return {
     type: 'GOTO_VIEW',
-    page: page
+    path: path
   }
 }
