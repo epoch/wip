@@ -3,22 +3,28 @@ import ReactDOM from 'react-dom';
 import { App, NavTo } from './containers';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { gotoView } from './actions';
+import { navigate } from './actions';
 import './style.css';
 
-var reducer = (prevState = { path: 'home' }, action) => {
+var route = (prevState = { path: 'home' }, action) => {
   switch (action.type) {
-    case 'GOTO_VIEW':
+    case 'NAVIGATE':
       return Object.assign({}, prevState, { path: action.path });
     default:
       return prevState;
   }
 }
 
-let store = createStore(reducer);
+function appReducer(state = {}, action) {
+  return {
+    route: route(state.route, action)
+  }
+}
+
+let store = createStore(appReducer);
 
 window.addEventListener('hashchange', function() {
-  store.dispatch(gotoView(window.location.hash.slice(1)));
+  store.dispatch(navigate(window.location.hash.slice(1)));
 }, false);
 
 
